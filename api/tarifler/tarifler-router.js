@@ -1,10 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const Tarif=require("./tarifler-model")
+const mw=require("./tarifler-middleware")
 
-router.get("/" ,async(req,res,next)=>{
-    const tarifler=await Tarif.find()
-    res.status(201).json(tarifler)
+router.get("/:id" ,mw.checkTarifId,async(req,res,next)=>{
+    try {
+        res.json(req.tarif)
+    } catch (error) {
+        next(error)
+    }
 })
 
 module.exports=router

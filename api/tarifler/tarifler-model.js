@@ -22,7 +22,7 @@ const idyeGoreTarifGetir=async(tarif_id)=>{
         const adimModel={
             adim_id:tarif.adim_id,
             adim_sira:tarif.adim_sira,
-            adim_talimatlari:tarif.adim_tarlimati,
+            adim_talimatlari:tarif.adim_talimat,
             icindekiler:[]
         }
         const icindekiler=await icindekileriGetir(tarif.adim_id)
